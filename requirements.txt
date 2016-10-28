@@ -1,2 +1,4 @@
+protobuf==3.1.0.post1
 pyzmq==16.0.0
+six==1.10.0
 utcdatetime==0.0.4
