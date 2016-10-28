@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message PriceUpdate {
+  string timestamp = 1;       // ISO 8601 eg 2016-10-28T15:00:57.629240Z
+}
