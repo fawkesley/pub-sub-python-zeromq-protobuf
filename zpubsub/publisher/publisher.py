@@ -14,9 +14,7 @@ PORT = 5638
 
 
 def main():
-    context = zmq.Context()
-    socket = context.socket(zmq.PUB)
-    socket.bind("tcp://*:{}".format(PORT))
+    socket = make_socket()
 
     time_topic = b'time'
     random_topic = b'random'
@@ -33,6 +31,13 @@ def main():
         socket.send(random_topic + b' ' + random_bytes)
 
         time.sleep(5)
+
+
+def make_socket():
+    context = zmq.Context()
+    socket = context.socket(zmq.PUB)
+    socket.bind("tcp://*:{}".format(PORT))
+    return socket
 
 
 def make_price_update_bytes():
