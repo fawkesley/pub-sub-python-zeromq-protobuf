@@ -7,7 +7,7 @@ import random
 import zmq
 import utcdatetime
 
-from pb import price_update_pb2
+from ..pb import price_update_pb2
 
 
 PORT = 5638

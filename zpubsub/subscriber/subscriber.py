@@ -4,7 +4,7 @@ import sys
 
 import zmq
 
-from pb import price_update_pb2
+from ..pb import price_update_pb2
 
 
 PORT = 5638
