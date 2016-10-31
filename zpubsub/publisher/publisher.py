@@ -23,9 +23,7 @@ def main():
     price_topic = b'price'
 
     while True:
-        price_update = price_update_pb2.PriceUpdate()
-        price_update.timestamp = str(utcdatetime.utcdatetime.now())
-        price_bytes = price_update.SerializeToString()
+        price_bytes = make_price_update_bytes()
         socket.send(price_topic + b' ' + price_bytes)
 
         time_bytes = str(utcdatetime.utcdatetime.now()).encode('utf-8')
@@ -35,6 +33,13 @@ def main():
         socket.send(random_topic + b' ' + random_bytes)
 
         time.sleep(5)
+
+
+def make_price_update_bytes():
+    price_update = price_update_pb2.PriceUpdate()
+    price_update.timestamp = str(utcdatetime.utcdatetime.now())
+    price_bytes = price_update.SerializeToString()
+    return price_bytes
 
 
 if __name__ == '__main__':
